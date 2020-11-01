@@ -1,0 +1,27 @@
+function equalNeighbors(input) {
+    let foundPairs = 0;
+    for (let outerArray = 0; outerArray <= input.length - 2; outerArray++) {
+        let innerArrayLength = input[outerArray].length;
+        for (let innerArray = 0; innerArray < innerArrayLength; innerArray++) {
+            let a = input[outerArray][innerArray];
+            let b = input[outerArray + 1][innerArray];
+            if (a === b) {
+                foundPairs++;
+            }
+        }
+    }
+
+    for (let a = 0; a < input.length; a++) {
+        let x = input[a].length;
+        for (let b = 0; b < x - 1; b++) {
+            let z = input[a][b];
+            let q = input[a][b + 1];
+            if (z === q) {
+                foundPairs++;
+            }
+        }
+    }
+
+
+    return foundPairs;
+}
